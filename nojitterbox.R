@@ -1,4 +1,4 @@
-jitterbox <- function(dv, f1, f2=NULL, ylab='Value') {
+nojitterbox <- function(dv, f1, f2=NULL, ylab='Value') {
     if(is.factor(f1)==FALSE | (is.factor(f2) | is.null(f2))==FALSE) {
         stop('f1 and f2 must be factors')
     }
@@ -11,6 +11,5 @@ jitterbox <- function(dv, f1, f2=NULL, ylab='Value') {
     library(ggplot2)
     ggplot(plot.data, aes(y=dv, x=f1, fill=f2)) +
         geom_boxplot() +
-        geom_jitter(alpha=.5, position=position_jitter(height=0)) +
         ylab(ylab)
 }
